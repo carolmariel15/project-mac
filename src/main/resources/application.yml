@@ -1,0 +1,13 @@
+server:
+  port: 8001
+spring:
+  application:
+    name: management-back
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://srv1056.hstgr.io:3306/u356902350_projectmac?serverTimezone=America/Lima
+    username: u356902350_mac
+    password: Projectmac1
+  jpa:
+    hibernate:
+      ddl-auto: update
