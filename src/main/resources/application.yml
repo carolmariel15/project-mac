@@ -2,7 +2,7 @@ server:
   port: 8001
 spring:
   application:
-    name: management-back
+    name: project-mac
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://srv1056.hstgr.io:3306/u356902350_projectmac?serverTimezone=America/Lima
