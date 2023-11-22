@@ -23,12 +23,10 @@ public class InsumoService {
         return insumoRepository.save(insumo);
     }
 
-    public Optional<Insumos> getById(Long id){
-
-        return insumoRepository.findById(id);
+    public Optional<Insumos> getById(int id){ return insumoRepository.findById(id);
     }
 
-    public Insumos updateById(Insumos request, Long id){
+    public Insumos updateById(Insumos request, int id){
         Insumos insumos=insumoRepository.findById(id).get();
 
         insumos.setCodInsumo(request.getCodInsumo());
@@ -36,12 +34,13 @@ public class InsumoService {
         insumos.setUniInsumo(request.getUniInsumo());
         insumos.setPreInsumo(request.getPreInsumo());
         insumos.setPriInsumo(request.getPriInsumo());
+        insumos.setCategoriaInsumos(request.getCategoriaInsumos());
 
         return insumos;
     }
 
 
-    public Boolean deleteInsumo(Long id){
+    public Boolean deleteInsumo(int id){
         try{
             insumoRepository.deleteById(id);
             return true;

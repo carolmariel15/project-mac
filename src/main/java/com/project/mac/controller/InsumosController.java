@@ -2,10 +2,7 @@ package com.project.mac.controller;
 
 
 import com.project.mac.model.entity.Insumos;
-import com.project.mac.repository.IInsumoRepository;
 import com.project.mac.service.impl.InsumoService;
-import jakarta.persistence.Id;
-import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -30,17 +27,17 @@ public class InsumosController {
     }
 
     @GetMapping(path = "/{id}")
-    public Optional<Insumos> getInsumosById(@PathVariable("id") Long id){
+    public Optional<Insumos> getInsumosById(@PathVariable("id") int id){
         return this.insumoService.getById(id);
     }
 
     @PutMapping(path = "/{id}")
-    public Insumos updateInsumosById(@RequestBody Insumos request,@PathVariable("id") Long id){
+    public Insumos updateInsumosById(@RequestBody Insumos request,@PathVariable("id") int id){
         return this.insumoService.updateById(request, id);
     }
 
     @DeleteMapping(path = "/{id}")
-    public String deleteById(@PathVariable("id") Long id){
+    public String deleteById(@PathVariable("id") int id){
         boolean correcto = this.insumoService.deleteInsumo(id);
 
         if (correcto){
