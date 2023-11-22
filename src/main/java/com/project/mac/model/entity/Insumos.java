@@ -29,7 +29,7 @@ public class Insumos {
 
     @ManyToOne
     @JoinColumn(name="id_categoria_insumo")
-    CategoriaInsumos categoriaInsumos;
+    CategoriaInsumo categoriaInsumos;
 
 
     public int getId() {
@@ -80,11 +80,11 @@ public class Insumos {
         this.flagPrioridadInsumo = priInsumo;
     }
 
-    public CategoriaInsumos getCategoriaInsumos() {
+    public CategoriaInsumo getCategoriaInsumos() {
         return categoriaInsumos;
     }
 
-    public void setCategoriaInsumos(CategoriaInsumos categoriaInsumos) {
+    public void setCategoriaInsumos(CategoriaInsumo categoriaInsumos) {
         this.categoriaInsumos = categoriaInsumos;
     }
 }
