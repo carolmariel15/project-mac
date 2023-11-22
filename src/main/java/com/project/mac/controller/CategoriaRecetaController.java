@@ -1,7 +1,7 @@
 package com.project.mac.controller;
 
-import com.project.mac.model.entity.Receta;
-import com.project.mac.service.IRecetaService;
+import com.project.mac.model.entity.CategoriaReceta;
+import com.project.mac.service.ICategoriaRecetaService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -9,16 +9,16 @@ import org.springframework.web.bind.annotation.*;
 import java.net.URI;
 import java.util.List;
 
-@RequestMapping("/receta")
+@RequestMapping("/categoriareceta")
 @RestController
 @RequiredArgsConstructor
 @CrossOrigin(origins = "*", allowedHeaders = "*")
-public class RecetaController {
+public class CategoriaRecetaController {
 
-    private final IRecetaService service;
+    private final ICategoriaRecetaService service;
 
     @GetMapping
-    ResponseEntity<List<Receta>> list() {
+    ResponseEntity<List<CategoriaReceta>> list() {
         var result = service.list();
         if(result.isEmpty()) {
             return ResponseEntity.noContent().build();
@@ -27,20 +27,20 @@ public class RecetaController {
     }
 
     @GetMapping("/{id}")
-    ResponseEntity<Receta> listById(@PathVariable int id) {
+    ResponseEntity<CategoriaReceta> listById(@PathVariable int id) {
         var result = service.listById(id).get();
 
         return ResponseEntity.ok(result);
     }
 
     @PostMapping
-    ResponseEntity<Receta> add(Receta entity) {
+    ResponseEntity<CategoriaReceta> add(CategoriaReceta entity) {
         var result = service.add(entity);
-        return ResponseEntity.created(URI.create("/" + result.getIdReceta())).body(result);
+        return ResponseEntity.created(URI.create("/" + result.getIdCategoriaReceta())).body(result);
     }
 
     @PatchMapping
-    ResponseEntity<Receta> edit(Receta entity) {
+    ResponseEntity<CategoriaReceta> edit(CategoriaReceta entity) {
         var result = service.edit(entity);
         return ResponseEntity.ok(result);
     }

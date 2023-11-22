@@ -9,10 +9,12 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
+@Table(name = "tb_categoriareceta")
 public class CategoriaReceta {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
-    private Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private int idCategoriaReceta;
+    private String nombreCategoriaReceta;
 
 }
