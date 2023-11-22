@@ -2,77 +2,89 @@ package com.project.mac.model.entity;
 
 
 import jakarta.persistence.*;
-import org.hibernate.annotations.CollectionId;
 
 @Entity
-@Table(name = "insumos")
+@Table(name = "tb_insumos")
 
 public class Insumos {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private int idInsumo;
 
     @Column
-    private String codInsumo;
+    private String codigoInsumo;
 
     @Column
-    private  String desInsumo;
+    private  String descripcionInsumo;
 
     @Column
-    private String uniInsumo;
+    private String unidadInsumo;
 
     @Column
-    private String preInsumo;
+    private String precioInsumo;
 
     @Column
-    private String priInsumo;
+    private String flagPrioridadInsumo;
 
-    public Long getId() {
-        return id;
+    @ManyToOne
+    @JoinColumn(name="id_categoria_insumo")
+    CategoriaInsumos categoriaInsumos;
+
+
+    public int getId() {
+        return idInsumo;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setId(int idInsumo) {
+        this.idInsumo = idInsumo;
     }
 
     public String getCodInsumo() {
-        return codInsumo;
+        return codigoInsumo;
     }
 
     public void setCodInsumo(String codInsumo) {
-        this.codInsumo = codInsumo;
+        this.codigoInsumo = codInsumo;
     }
 
     public String getDesInsumo() {
-        return desInsumo;
+        return descripcionInsumo;
     }
 
-    public void setDesInsumo(String desInsumo) {
-        this.desInsumo = desInsumo;
+    public void setDesInsumo(String descripcionInsumo) {
+        this.descripcionInsumo = descripcionInsumo;
     }
 
     public String getUniInsumo() {
-        return uniInsumo;
+        return unidadInsumo;
     }
 
     public void setUniInsumo(String uniInsumo) {
-        this.uniInsumo = uniInsumo;
+        this.unidadInsumo = uniInsumo;
     }
 
     public String getPreInsumo() {
-        return preInsumo;
+        return precioInsumo;
     }
 
     public void setPreInsumo(String preInsumo) {
-        this.preInsumo = preInsumo;
+        this.precioInsumo = preInsumo;
     }
 
     public String getPriInsumo() {
-        return priInsumo;
+        return flagPrioridadInsumo;
     }
 
     public void setPriInsumo(String priInsumo) {
-        this.priInsumo = priInsumo;
+        this.flagPrioridadInsumo = priInsumo;
+    }
+
+    public CategoriaInsumos getCategoriaInsumos() {
+        return categoriaInsumos;
+    }
+
+    public void setCategoriaInsumos(CategoriaInsumos categoriaInsumos) {
+        this.categoriaInsumos = categoriaInsumos;
     }
 }
