@@ -34,13 +34,13 @@ public class CategoriaRecetaController {
     }
 
     @PostMapping
-    ResponseEntity<CategoriaReceta> add(CategoriaReceta entity) {
+    ResponseEntity<CategoriaReceta> add(@RequestBody CategoriaReceta entity) {
         var result = service.add(entity);
         return ResponseEntity.created(URI.create("/" + result.getIdCategoriaReceta())).body(result);
     }
 
     @PatchMapping
-    ResponseEntity<CategoriaReceta> edit(CategoriaReceta entity) {
+    ResponseEntity<CategoriaReceta> edit(@RequestBody CategoriaReceta entity) {
         var result = service.edit(entity);
         return ResponseEntity.ok(result);
     }
